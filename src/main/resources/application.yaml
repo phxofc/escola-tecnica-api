@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: API Escola Técnica
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/banco-v1-tst
+    username: postgres
+    password: postgres
+  jpa:
+    open-in-view: false
+    show-sql: false
+  flyway:
+    locations:
+      - classpath:db/migrations/organization
+      - classpath:db/migrations/user
+      - classpath:db/migrations/course
+      - classpath:db/migrations/discipline
+      - classpath:db/migrations/documentation
+      - classpath:db/migrations/material
+      - classpath:db/migrations/answer
+      - classpath:db/migrations/score
+      - classpath:db/migrations/enrollment
+      - classpath:db/migrations/clazz
+    enabled: true
+    validate-on-migrate: true
+
+server:
+  port: 8080
+
+jwt:
+  secret: e3c885d6-c738-49b1-9058-0cde56f57e2b
+  expiration: 86400000
